@@ -7,6 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait as Wait  # Used for wa
 username = config('VUSER')  # Sets the Username from .env in project
 password = config('PASS')  # Sets the Password name from .env in project
 timestamp = datetime.now()  # Sets the current date and time to the variable for Test Results
+f = open("results.txt", "a+")  # Creates a file in which test results will be recorded to
 
 class TestLoginTest():
     def setup_method(self, method):
@@ -18,7 +19,7 @@ class TestLoginTest():
     def test_login_valid(self):  # A user with valid login credentials is able to log into and out of their account.
         try:
             driver = self.driver
-            f = open("results.txt", "a+")  # Creates a file in which test results will be recorded to
+
             f.write("test_valid_login: " + str(timestamp) + "\n")  # writes a header on the file for the first case
             driver.get("https://www.votervoice.net/AdminSite/Login")  # opens browser to Login page
             driver.set_window_size(1200, 988)  # Sets the size of the window to specified dimensions
@@ -69,23 +70,54 @@ class TestLoginTest():
                 step = None  # Sets the step variable to None
                 raise Exception()  # With Step as None it passes this to the exception to write the Test Case as Fail
             f.write("   Test Step " + str(step) + " = " + "PASS\n")  # Writes Step as PASS to the Results file
-            f.write("Test Result = " + "PASS\n")  # Writes to the Results file that the Test Case has Passed
+            f.write("Test Case Result = " + "PASS\n")  # Writes to the Results file that the Test Case has Passed
         except:
             if step is not None:  # A check on the variable step to see if it is not None
                 f.write("   Test Step " + str(step) + " = " + "BLOCKED\n")  # Step is marked BLOCKED due to code failing outside of test parameters
-                f.write("Test Result = " + "BLOCKED\n")  # Overall Test Case is marked block due to a Blocked Step
+                f.write("Test Case Result = " + "BLOCKED\n")  # Overall Test Case is marked block due to a Blocked Step
             else:
-                f.write("Test Result = " + "FAIL\n")  # Test Case marked failed due to step variable is None and Step has failed.
+                f.write("Test Case Result = " + "FAIL\n")  # Test Case marked failed due to step variable is None and Step has failed.
 
+    def test_invalid_login(self):  # A user with invalid login credentials will see an error when attempting to log in.
+        try:
+            self.driver.get("https://www.votervoice.net/AdminSite/Login")
+            step = 1
+        except:
+            if step is not None:
+                f.write("   Test Step " + str(step) + " = " + "BLOCKED\n")
+                f.write("Test Case Result = " + "BLOCKED\n")
+            else:
+                f.write("Test Case Result = " + "FAIL\n")
 
-    def test_invalid_login(self):
-        self.driver.get("https://www.votervoice.net/AdminSite/Login")
+    def test_empty_pass(self):  # A user who leaves the password field blank will see an error message.
+        try:
+            self.driver.get("https://www.votervoice.net/AdminSite/Login")
+            step = 1
+        except:
+            if step is not None:
+                f.write("   Test Step " + str(step) + " = " + "BLOCKED\n")
+                f.write("Test Case Result = " + "BLOCKED\n")
+            else:
+                f.write("Test Case Result = " + "FAIL\n")
 
-    def test_empty_pass(self):
-        self.driver.get("https://www.votervoice.net/AdminSite/Login")
+    def test_empty_user(self):  # A user who leaves the username field blank will see an error message.
+        try:
+            self.driver.get("https://www.votervoice.net/AdminSite/Login")
+            step = 1
+        except:
+            if step is not None:
+                f.write("   Test Step " + str(step) + " = " + "BLOCKED\n")
+                f.write("Test Case Result = " + "BLOCKED\n")
+            else:
+                f.write("Test Case Result = " + "FAIL\n")
 
-    def test_empty_user(self):
-        self.driver.get("https://www.votervoice.net/AdminSite/Login")
-
-    def test_empty_user_pass(self):
-        self.driver.get("https://www.votervoice.net/AdminSite/Login")
+    def test_empty_user_pass(self):  # A user who leaves both fields blank will see an error message.
+        try:
+            self.driver.get("https://www.votervoice.net/AdminSite/Login")
+            step = 1
+        except:
+            if step is not None:
+                f.write("   Test Step " + str(step) + " = " + "BLOCKED\n")
+                f.write("Test Case Result = " + "BLOCKED\n")
+            else:
+                f.write("Test Case Result = " + "FAIL\n")
