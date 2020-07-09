@@ -1,7 +1,7 @@
 from decouple import config  # Used for getting Login Credentials
 from datetime import datetime  # Used for Time stamping Test Results in Results file
 from selenium import webdriver  # Used for communicating the python code over the selenium code to the chrome browser
-from selenium.webdriver.common.by import By  # Used for indentifying elements By Xpath, Name, CSS_Selector, etc
+from selenium.webdriver.common.by import By  # Used for identifying elements By Xpath, Name, CSS_Selector, etc
 from selenium.webdriver.support import expected_conditions as EC  # Used for waits and to specify the conditions
 from selenium.webdriver.support.wait import WebDriverWait as Wait  # Used for waiting for certain elements to appear
 username = config('VUSER')  # Sets the Username from .env in project
@@ -151,14 +151,12 @@ class TestLoginTest():
 
             # Test Step 1: Input Username into Username Field
             step = 1
-            driver.find_element(By.NAME, "username").send_keys(
-                username)  # Identifies the username field and inputs username
-            if driver.find_element(By.NAME, "username").get_attribute(
-                    "value") != username:  # Check is made to ensure it was inputted correctly
-                f.write("   Test Step " + str(step) + " = " + "FAIL\n")  # Writes Step as FAIL to the Results file
+            driver.find_element(By.NAME, "username").send_keys(username)
+            if driver.find_element(By.NAME, "username").get_attribute("value") != username:
+                f.write("   Test Step " + str(step) + " = " + "FAIL\n")
                 step = None
-                raise Exception()  # With Step as None it passes this to the exception to write the Test Case as Fail
-            f.write("   Test Step " + str(step) + " = " + "PASS\n")  # Writes Step as PASS to the Results file
+                raise Exception()
+            f.write("   Test Step " + str(step) + " = " + "PASS\n")
 
             # Test Step 2: Attempting to Login Results in Empty Password Error
             step += 1
@@ -185,18 +183,17 @@ class TestLoginTest():
             # Pre-Conditions
             self.preconditions()
             driver = self.driver
-            f.write("test_empty_user: " + str(timestamp) + "\n")  # Writes a header on the file for the first case
+            f.write("test_empty_user: " + str(timestamp) + "\n")
 
             # Test Step 1:
             step = 1
-            driver.find_element(By.NAME, "password").send_keys(
-                password)  # Identifies the username field and inputs username
+            driver.find_element(By.NAME, "password").send_keys(password)
             if driver.find_element(By.NAME, "password").get_attribute(
-                    "value") != password:  # Check is made to ensure it was inputted correctly
-                f.write("   Test Step " + str(step) + " = " + "FAIL\n")  # Writes Step as FAIL to the Results file
+                    "value") != password:
+                f.write("   Test Step " + str(step) + " = " + "FAIL\n")
                 step = None
-                raise Exception()  # With Step as None it passes this to the exception to write the Test Case as Fail
-            f.write("   Test Step " + str(step) + " = " + "PASS\n")  # Writes Step as PASS to the Results file
+                raise Exception()
+            f.write("   Test Step " + str(step) + " = " + "PASS\n")
 
             # Test Step 2: Attempting to Login Results in Empty User Error
             step += 1
@@ -223,7 +220,7 @@ class TestLoginTest():
             # Pre-Conditions
             self.preconditions()
             driver = self.driver
-            f.write("test_empty_user_pass: " + str(timestamp) + "\n")  # writes a header on the file for the first case
+            f.write("test_empty_user_pass: " + str(timestamp) + "\n")
 
             # Test Step 1: Attempting to Login Results in Empty User and Password Error
             step = 1
