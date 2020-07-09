@@ -15,6 +15,13 @@ Automation Tests for VoterVoice Login Page
 ## Step 4: Running the Tests
 1. After installing all the dependencies, run the command ```pytest login_smoke_tests.py```
 
+
+
+
+
+
+
+
 ## Python Setup Install Instructions
 
 ## For Windows
