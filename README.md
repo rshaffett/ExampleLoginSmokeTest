@@ -4,7 +4,7 @@ Automation Tests for VoterVoice Login Page
 *If you have Python version 3 setup already then ignore the guides else please refer to the guides below for setting up python.*
 
 ## Step 1: Get the Project/Repo on Local Machine
-1. To keep the setup from being too lengthy outside of getting python setup we are just going to download the repo to a destination on your machine.
+1. To keep the setup from being too lengthy outside of getting python setup we are just going to download the repo to a destination on your machine via the Download Repo option on the Repo.
 
 ## Step 2: Navigate to the Repo on Local Machine in Terminal
 1. I would recommend typing in the Command Prompt/Terminal ```cd path\to\where\repo\is\examplevoter\```
