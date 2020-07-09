@@ -10,16 +10,13 @@ Automation Tests for VoterVoice Login Page
 1. I would recommend typing in the Command Prompt/Terminal ```cd path\to\where\repo\is\examplevoter\```
 
 ## Step 3: Installing All Required Packages
-1. Inside of the directory that has been navigated to, we will need to run the following ```pip3 install -r requirements.txt```
+1. Inside of the directory that has been navigated to, we will need to run the following ```python3 -m pip install -r requirements.txt```
 
 ## Step 4: Running the Tests
-1. After installing all the dependencies, run the command ```pytest login_smoke_tests.py```
+1. After installing all the dependencies, run the command ```python3 pytest login_smoke_tests.py```
 
-
-
-
-
-
+## Step 5: Checking the Results
+1. Once Pytest has successfully finished running, inside of the project directory will be a text file called ```results.txt```. This will contain the test results for the 5 login tests.
 
 
 ## Python Setup Install Instructions
