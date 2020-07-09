@@ -1,12 +1,1 @@
-test_valid_login: 2020-07-09 00:16:18.352853
-   Test Step 1 = PASS
-   Test Step 2 = PASS
-   Test Step 3 = PASS
-   Test Step 4 = PASS
-Test Result = PASS
-test_valid_login: 2020-07-09 00:18:45.064873
-   Test Step 1 = PASS
-   Test Step 2 = PASS
-   Test Step 3 = PASS
-   Test Step 4 = PASS
-Test Result = PASS
+
