@@ -1,4 +1,4 @@
-# examplevoter
+# ExampleLoginSmokeTest
 Automation Tests for VoterVoice Login Page
 ## Quick Start
 *If you have Python version 3 setup already then ignore the guides else please refer to the guides below for setting up python.*
