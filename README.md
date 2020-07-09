@@ -12,10 +12,19 @@ Automation Tests for VoterVoice Login Page
 ## Step 3: Installing All Required Packages
 1. Inside of the directory that has been navigated to, we will need to run the following ```python3 -m pip install -r requirements.txt```
 
-## Step 4: Running the Tests
+## Step 4: Creating File to Store Environment Variables For Use in Tests
+1. Create a file a file in the project directory either manually called ```.env``` or via the Terminal with ```touch .env```
+2. Add to the file manually the username and password or by ```nano .env``` and insert:
+   ```
+   VUSER=<UserName>
+   PASS=<Password>
+   ```
+3. Save and exit the file manually or press ```Ctrl + X``` and then type ```Y``` and hit ```Enter```.
+
+## Step 5: Running the Tests
 1. After installing all the dependencies, run the command ```python3 pytest login_smoke_tests.py```
 
-## Step 5: Checking the Results
+## Step 6: Checking the Results
 1. Once Pytest has successfully finished running, inside of the project directory will be a text file called ```results.txt```. This will contain the test results for the 5 login tests.
 
 
