@@ -1,13 +1,12 @@
-import pytest
-import keyring
+from decouple import config
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait as Wait
-username = keyring.get_password("votervoice", "username")
-password = keyring.get_password("votervoice", "password")
-f=open("results.txt", "a+")
+username = config('VUSER')
+password = config('PASS')
+f = open("results.txt", "a+")
 timestamp = datetime.now()
 
 class TestLoginTest():
@@ -80,14 +79,14 @@ class TestLoginTest():
                 f.write("Test Result = " + "FAIL\n")
                 driver.quit()
 
-    # def test_invalid_login(self):
-    #     self.driver.get("https://www.votervoice.net/AdminSite/Login")
-    #
-    # def test_empty_pass(self):
-    #     self.driver.get("https://www.votervoice.net/AdminSite/Login")
-    #
-    # def test_empty_user(self):
-    #     self.driver.get("https://www.votervoice.net/AdminSite/Login")
-    #
-    # def test_empty_user_pass(self):
-    #     self.driver.get("https://www.votervoice.net/AdminSite/Login")
+    def test_invalid_login(self):
+        self.driver.get("https://www.votervoice.net/AdminSite/Login")
+
+    def test_empty_pass(self):
+        self.driver.get("https://www.votervoice.net/AdminSite/Login")
+
+    def test_empty_user(self):
+        self.driver.get("https://www.votervoice.net/AdminSite/Login")
+
+    def test_empty_user_pass(self):
+        self.driver.get("https://www.votervoice.net/AdminSite/Login")
