@@ -7,7 +7,7 @@ Automation Tests for VoterVoice Login Page
 1. To keep the setup from being too lengthy outside of getting python setup we are just going to download the repo to a destination on your machine via the Download Zip option on the Code dropdown.
 
 ## Step 2: Navigate to the Repo on Local Machine in Terminal
-1. I would recommend typing in the Command Prompt/Terminal ```cd path\to\where\repo\is\examplevoter\```
+1. I would recommend typing in the Command Prompt/Terminal ```cd path\to\where\repo\is\LoginSmokeTest\```
 
 ## Step 3: Installing All Required Packages
 1. Inside of the directory that has been navigated to, we will need to run the following ```python3 -m pip install -r requirements.txt```
