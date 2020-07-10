@@ -6,12 +6,11 @@ from selenium.webdriver.support import expected_conditions as EC  # Used for wai
 from selenium.webdriver.support.wait import WebDriverWait as Wait  # Used for waiting for certain elements to appear
 username = config('VUSER')  # Sets the Username from .env in project
 password = config('PASS')  # Sets the Password name from .env in project
-timestamp = datetime.now()  # Sets the current date and time to the variable for Test Results
 f = open("results.txt", "a+")  # Creates a file in which test results will be recorded to
 
 class TestLoginTest():
     def setup_method(self):
-        self.driver = webdriver.Chrome("/Users/richard/chromedriver") # Sets the location of the WebDriver that will be
+        self.driver = webdriver.Chrome("/Users/richard/chromedriver")  # Sets the location of the WebDriver that will be
         # needed
 
     def teardown_method(self):
@@ -30,7 +29,7 @@ class TestLoginTest():
             # Pre-Conditions
             self.preconditions()
             driver = self.driver
-            f.write("test_valid_login: " + str(timestamp) + "\n")  # writes a header on the file for the first case
+            f.write("test_valid_login: " + str(datetime.now()) + "\n")  # writes a header on the file for the first case
 
             # Test Step 1: Input Username into Username Field
             step = 1
@@ -103,7 +102,7 @@ class TestLoginTest():
             # Pre-Conditions
             self.preconditions()
             driver = self.driver
-            f.write("test_invalid_login: " + str(timestamp) + "\n")
+            f.write("test_invalid_login: " + str(datetime.now()) + "\n")
             # Test Step 1: Input Incorrect Username into Username Field
             step = 1
             driver.find_element(By.NAME, "username").send_keys("dummytest@test.com")
@@ -147,7 +146,7 @@ class TestLoginTest():
             # Pre-Conditions
             self.preconditions()
             driver = self.driver
-            f.write("test_empty_pass: " + str(timestamp) + "\n")  # writes a header on the file for the first case
+            f.write("test_empty_pass: " + str(datetime.now()) + "\n")  # writes a header on the file for the first case
 
             # Test Step 1: Input Username into Username Field
             step = 1
@@ -183,7 +182,7 @@ class TestLoginTest():
             # Pre-Conditions
             self.preconditions()
             driver = self.driver
-            f.write("test_empty_user: " + str(timestamp) + "\n")
+            f.write("test_empty_user: " + str(datetime.now()) + "\n")
 
             # Test Step 1:
             step = 1
@@ -220,7 +219,7 @@ class TestLoginTest():
             # Pre-Conditions
             self.preconditions()
             driver = self.driver
-            f.write("test_empty_user_pass: " + str(timestamp) + "\n")
+            f.write("test_empty_user_pass: " + str(datetime.now()) + "\n")
 
             # Test Step 1: Attempting to Login Results in Empty User and Password Error
             step = 1
@@ -239,7 +238,6 @@ class TestLoginTest():
                 raise Exception()
             f.write("   Test Step " + str(step) + " = " + "PASS\n")
             f.write("Test Case Result = " + "PASS\n")
-
         except:
             if step is not None:
                 f.write("   Test Step " + str(step) + " = " + "BLOCKED\n")
