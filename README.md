@@ -1,7 +1,7 @@
 # ExampleLoginSmokeTest
 Automation Tests for VoterVoice Login Page
 ## Quick Start
-*If you have Python version 3 setup already then ignore the guides else please refer to the guides below for setting up python.*
+*If you have Python version 3 setup already then ignore the Python setup guides, else please refer to the guides below for setting up Python.*
 
 ## Step 1: Get the Project/Repo on Local Machine
 1. To keep the setup from being too lengthy outside of getting python setup we are just going to download the repo to a destination on your machine via the Download Zip option on the Code dropdown.
